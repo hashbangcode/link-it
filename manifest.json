@@ -1,0 +1,15 @@
+{
+    "name": "Link Directory Screen It",
+    "version": "1.0.0",
+    "description": "Takes screenshots for the link directory.",
+    "manifest_version": 3,
+    "author": "Philip Norton",
+    "permissions": ["debugger", "tabs", "activeTab"],
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Screen it!"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}
