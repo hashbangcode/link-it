@@ -43,6 +43,11 @@ document.getElementById('send').addEventListener('click', async () => {
     const titlefield = document.getElementById('title');
     const imagedata = document.getElementById('image-data');
 
+    const sendStatus = document.getElementById('send-status');
+
+    sendStatus.innerText = 'Sending!...';
+    sendStatus.classList.remove('hidden');
+
     const { apiKey, debugMode } = await chrome.storage.sync.get({ apiKey: 'EMPTY', debugMode: false });
 
     // If the debugMode is set then swap the destination to the ddev instance.
@@ -103,16 +108,14 @@ document.getElementById('send').addEventListener('click', async () => {
             successMessage += `Success!<br>`
             successMessage = `${result.message}`;
         }
-        document.getElementById('send-status').innerHTML = successMessage;
-        document.getElementById('send-status').classList.remove('hidden');
+        sendStatus.innerHTML = successMessage;
 
     } catch (error) {
         // Display error.
         let failureMessage = '';
         failureMessage += `Failed!<br>`
         failureMessage += error.message;
-        document.getElementById('send-status').innerHTML = failureMessage;
-        document.getElementById('send-status').classList.remove('hidden');
+        sendStatus.innerHTML = failureMessage;
     }
 
 });
