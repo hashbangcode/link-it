@@ -4,12 +4,17 @@
     "description": "Takes screenshots for the link directory.",
     "manifest_version": 3,
     "author": "Philip Norton",
-    "permissions": ["debugger", "tabs", "activeTab"],
+    "permissions": ["debugger", "tabs", "activeTab", "storage"],
     "action":{
         "default_popup": "index.html",
         "default_title": "Screen it!"
     },
     "background": {
         "service_worker": "background.js"
-    }
+    },
+    "host_permissions": [
+        "https://www.hashbangcode.com/*",
+        "https://hashbangcode.ddev.site/*"
+    ],
+    "options_page": "options.html"
 }

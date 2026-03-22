@@ -7,13 +7,40 @@
             width: 200px;
             text-align: center;
         }
+        .layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        .hidden {
+            display: none;
+        }
+        #send {
+            margin: 16px 0;
+        }
     </style>
 </head>
 
 <body>
-    <button id="snap">Take 1280x960 Screenshot</button>
-    <div id="status"></div>
-    <img id="result" style="width: 100%; margin-top: 10px;" />
+
+    <div class="layout">
+
+    <button id="snap">Grab Link Data</button>
+    <div id="snap-status"></div>
+    <img id="result-image" style="width: 100%; margin-top: 10px;" />
+    <input type="hidden" id="image-data" />
+
+    <input type="text" id="title" name="title" class="hidden" />
+    <input type="text" id="linkurl" name="linkurl" class="hidden" />
+    
+    <button id="send" class="hidden">Link It!</button>
+
+    <p id="send-status" class="hidden">Success!</p>
+
+    <button id="go-to-options">options</button>
+</div>
+
     <script src="script.js"></script>
 </body>
 
